@@ -12,6 +12,6 @@ if($cek > 0){ //memberikan session pada variabel username dan status login
 	$_SESSION['username'] = $username;
     $_SESSION['status'] = "login";
 
-    header("location:data.php");
+    header("location:databs.php");
 }
 ?>

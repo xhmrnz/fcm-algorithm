@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Tables</title>
+  <title>Proses Perhitungan</title>
 
   <!-- Custom fonts for this template -->
   <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
@@ -42,7 +42,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+        <div class="sidebar-brand-text mx-3">Dashboard</div>
       </a>
 
 
@@ -98,7 +98,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
                 <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>
               <!-- Dropdown - User Information -->
@@ -138,7 +138,11 @@
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+              <a href="excel.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+          <i class="fas fa-sm text-white-50">
+          </i>
+          Export to Excel
+          </a>
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -167,7 +171,7 @@ tr:nth-child(even) {
 }
 </style>
                 
-                <table>
+<table>
 <tr>
 <th>Data Ke</th>
 <th colspan="2"></th>
@@ -283,7 +287,7 @@ while($u = mysqli_fetch_array($data)){
     $x        = $ul2 / $v;
 
     //echo number_format(0.3,6,".",",");
-    echo $maxc1;
+    //echo $maxc1;
 
         ?>
         <tr>
@@ -405,11 +409,12 @@ $query = mysqli_query($koneksi, $sql);
 while($u = mysqli_fetch_array($query))
 {
     //hasil cluster
-    $c  = $u['c'];
+    $nama  = $u['nama'];
+    $c     = $u['c'];
     ?>
     <tr>
         <td><?= $no++ ?></td>
-        <td> a </td>
+        <td><?= $nama ?> </td>
         <td><?= $c    ?></td>
     </tr>
 <?php } ?>

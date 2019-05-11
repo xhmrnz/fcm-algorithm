@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Tables</title>
+  <title>DataTables</title>
 
   <!-- Custom fonts for this template -->
   <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
@@ -42,7 +42,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+        <div class="sidebar-brand-text mx-3">Dashboard</div>
       </a>
 
 
@@ -98,7 +98,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
                 <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>
               <!-- Dropdown - User Information -->
@@ -139,7 +139,7 @@
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+            <a href="input-data.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
           <i class="fas fa-sm text-white-50">
           </i>
           Tambah Data
@@ -223,8 +223,15 @@ tr:nth-child(even) {
       </tr>
       <br/>
       <tr>
+        <td>
+        </td>
 				<td>
-            <input type="submit" name="proses" value="Proses">
+        <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" type="submit" name="proses" value="Proses">
+          <i class="fas fa-sm text-white-50">
+          </i>
+          Proses Perhitungan
+          </button>
+            </div>
           </form>
         </td>
 		  </tr>
@@ -232,7 +239,6 @@ tr:nth-child(even) {
               </div>
             </div>
           </div>
-
         </div>
         <!-- /.container-fluid -->
 
