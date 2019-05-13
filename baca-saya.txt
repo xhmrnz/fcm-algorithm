@@ -1,0 +1,6 @@
+Cara menggunakan : 
+- ubah nama folder project ini dari "fcm-algorithm-master" menjadi "fcm" saja.
+- buat database bernama "fcm" lalu export file "fcm.sql"
+- harap baca panduan kriteria nilai sebelum melakukan input data nilai
+
+Copyright 2018 lhmrnfrzrfr
