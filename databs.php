@@ -133,7 +133,7 @@
 
           <!-- Page Heading -->
           <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-          <p class="mb-4">Harap masukan data terlebih dahulu sebelum memulai proses perhitungan.</a>.</p>
+          <p class="mb-4">Harap masukan data terlebih dahulu sebelum memulai proses perhitungan.</p>
           
 
           <!-- DataTales Example -->
