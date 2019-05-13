@@ -183,9 +183,7 @@ while($u = mysqli_fetch_array($data)){
                     $query = mysqli_query($koneksi, $sql);
                     echo "X"; 
                 }
-                else if ($w <= number_format(0.5,6,".",","))
-                        $sql2 = "UPDATE dataset SET c='c2', nilai_c2='$w' WHERE id='$id'";
-                        $query2 = mysqli_query($koneksi, $sql2);
+                        
             }
             // 3 cluster
             //if ($jcluster == "c3")
@@ -202,6 +200,8 @@ while($u = mysqli_fetch_array($data)){
             {
                 if ($x >= number_format(0.5,6,".",","))
                 {
+                    $sql2 = "UPDATE dataset SET c='c2', nilai_c2='$w' WHERE id='$id'";
+                    $query2 = mysqli_query($koneksi, $sql2);
                     echo "X";
                 }
             }
