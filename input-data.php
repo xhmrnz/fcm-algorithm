@@ -133,7 +133,7 @@
 
           <!-- Page Heading -->
           <h3>Input data baru</h3>
-          <p class="mb-4">Silahkan masukkan data dengan format data yang sesuai, agar hasil perhitungan dan peng-Clusteran bisa akurat.</p>
+          <p class="mb-4">Silahkan masukkan data dengan format data yang sesuai dengan kriteria yang telah ditentukan, agar hasil perhitungan dan peng-Clusteran bisa berjalan dengan akurat.</p>
           
             <div class="card-body">
               <div class="table-responsive">
