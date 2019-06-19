@@ -239,7 +239,7 @@ $maxc2  = 0.99999999999999999999999999999999;
 
 $no     = 1;
 $data = mysqli_query($koneksi,"SELECT c . * , p . *
-FROM bildom c, dataset p
+FROM bildom c, datatest p
 WHERE c.id = p.id"); //menggabungkan data dari 2 table database
 while($u = mysqli_fetch_array($data)){
     //Rumus Algoritma (Looping)
@@ -321,15 +321,16 @@ while($u = mysqli_fetch_array($data)){
             if ($jcluster == "2")
             {
                 
-                if ($w >= number_format(0.5,6,".",",")) //pembagian 2 cluster berdasarkan 0,5
+                if ($x <= number_format(0.5,1,".",",")) //pembagian 2 cluster berdasarkan 0,5
                 {
-                    $sql = "UPDATE dataset SET c='c1', nilai_c1='$w' WHERE id='$id'";
-                    $query = mysqli_query($koneksi, $sql);
-                    echo "X"; 
+                  echo "X";
+                //    //$sql = "UPDATE dataset SET c='c1', nilai_c1='$w' WHERE id='$id'";
+                //    //$query = mysqli_query($koneksi, $sql);
+                //    echo "X"; 
                 }
-                else if ($w <= number_format(0.5,6,".",","))
-                        $sql2 = "UPDATE dataset SET c='c2', nilai_c2='$w' WHERE id='$id'";
-                        $query2 = mysqli_query($koneksi, $sql2);
+                //else if ($w <= number_format(0.5,6,".",","))
+                        //$sql2 = "UPDATE dataset SET c='c2', nilai_c2='$w' WHERE id='$id'";
+                        //$query2 = mysqli_query($koneksi, $sql2);
             }
             // 3 cluster
             //if ($jcluster == "c3")
@@ -344,10 +345,11 @@ while($u = mysqli_fetch_array($data)){
             <?php
             if ($jcluster == "2")
             {
-                if ($x >= number_format(0.5,6,".",","))
-                {
-                    echo "X";
-                }
+              echo $x;
+                //if ($x >= number_format(0.5,6,".",","))
+                //{
+                //    echo "X";
+                //}
             }
             // cluster 3
             //if ($jcluster == "c3")
@@ -399,29 +401,7 @@ while($u = mysqli_fetch_array($data)){
 </table>
 <br/>
 <!-- Other Table -->
-<table>
-<tr>
-        <th>No</th>
-        <th>Nama</th>
-        <th>Cluster</th>
-    </tr>
-    <?php
-$no     = 1;
-$sql = "SELECT * FROM dataset";
-$query = mysqli_query($koneksi, $sql);
-while($u = mysqli_fetch_array($query))
-{
-    //hasil cluster
-    $nama  = $u['nama'];
-    $c     = $u['c'];
-    ?>
-    <tr>
-        <td><?= $no++ ?></td>
-        <td><?= $nama ?> </td>
-        <td><?= $c    ?></td>
-    </tr>
-<?php } ?>
-</table>
+
               </div>
             </div>
           </div>

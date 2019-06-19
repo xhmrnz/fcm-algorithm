@@ -132,128 +132,57 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-          <p class="mb-4">Harap masukan data terlebih dahulu sebelum memulai proses perhitungan.</p>
-          
-
-          <!-- DataTales Example -->
-          <div class="card shadow mb-4">
-            <div class="card-header py-3">
-            <a href="upload.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-          <i class="fas fa-sm text-white-50">
-          </i>
-          Upload Data
-          </a>
-            </div>
-            <div class="card-body">
-              <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <thead>
-                  <tr>
-                    <th rowspan="2">No</th>
-                    <th rowspan="2">Nama</th>
-                    <th colspan="2">Kriteria</th>
-                        </tr>
-                        <tr>
-                            <th>Nilai 1</th>
-                            <th>Nilai 2</th>
-                        </tr>
-                  </thead>
-                  <?php
-                  include 'koneksi.php';
-                  $no = 1;
-                  $data = mysqli_query($koneksi, "SELECT * FROM datatest");
-                  while($d = mysqli_fetch_array($data)){
-                  ?>
-                  <tbody>
-                    <tr>
-                      <td><?= $no++ ?></td>
-                      <td><?= $d['nama'] ?></td>
-                      <td><?= $d['x1'] ?></td>
-                      <td><?= $d['x2'] ?></td>
-                    </tr>
-                        <?php } ?>
-                  </tbody>
-                </table>
-                <!-- Style custom -->
-                <style>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Perhitungan</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
-    <script src="main.js"></script>
-</head>table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: center;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-</style>
-
-<table>
-      <form action="prosesbs.php" method="post">
-      <tr>
-				<td>Jumlah Cluster Dicari</td>
-				<td><input type="int" name="cluster" value="2"></td>
-      </tr>
-      <br/>
+          <h1 class="h3 mb-2 text-gray-800">Upload Data</h1>
+          <p class="mb-4">Silahkan upload file data dengan format .xls atau .xlsx
+          <br>
+          Dan pastikan dataset telah kosong sebelum meng-upload dataset baru.
+          </p>
+	<table>
+		<!--form upload file-->
+		<form method="post" enctype="multipart/form-data" >
 			<tr>
-				<td>Maksimum Iterasi</td>
-				<td><input type="int" name="iterasi" value="100" readonly></td>
-      </tr>
-      <br/>
-      <tr>
-				<td>Nilai Pembobot(Pangkat)</td>
-				<td><input type="int" name="pangkat" value="2" readonly></td>
-      </tr>
-      <br/>
-      <tr>
-				<td>Nilai Error Terkecil</td>
-				<td><input type="int" name="error" value="0.000001" readonly></td>
-      </tr>
-      <br/>
-      <tr>
-        <td>
-        </td>
-				<td>
-        <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" type="submit" name="proses" value="Proses">
-          <i class="fas fa-sm text-white-50">
-          </i>
-          Proses Perhitungan
-          </button>
-            </div>
-          </form>
-        </td>
-		  </tr>
-      </table>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- /.container-fluid -->
+				<td>Pilih File</td>
+				<td><input name="filemhsw" type="file" required="required"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input name="upload" type="submit" value="Import"></td>
+			</tr>
+		</form>
+	</table>
+	<?php
+    include 'koneksi.php';
+	if (isset($_POST['upload'])) {
 
-      </div>
+		require('spreadsheet-reader-master/php-excel-reader/excel_reader2.php');
+		require('spreadsheet-reader-master/SpreadsheetReader.php');
+
+		//upload data excel kedalam folder uploads
+		$target_dir = "uploads/".basename($_FILES['filemhsw']['name']);
+		
+		move_uploaded_file($_FILES['filemhsw']['tmp_name'],$target_dir);
+
+		$Reader = new SpreadsheetReader($target_dir);
+
+		foreach ($Reader as $Key => $Row)
+		{
+			// import data excel mulai baris ke-2 (karena ada header pada baris 1)
+			if ($Key < 1) continue;			
+			$query = mysqli_query($koneksi, "INSERT INTO datatest(nama,x1,x2) VALUES ('".$Row[0]."', '".$Row[1]."','".$Row[2]."')");
+		}
+		if ($query) {
+                echo "Import data berhasil!";
+                echo "</br>";
+                echo "Silahkan kembali ke dashboard";
+                
+			}else{
+				echo mysqli_error();
+			}
+	}
+	?>
+</div>
       <!-- End of Main Content -->
 
-      <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2019</span>
-          </div>
-        </div>
-      </footer>
-      <!-- End of Footer -->
 
     </div>
     <!-- End of Content Wrapper -->
