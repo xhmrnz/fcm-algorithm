@@ -324,13 +324,15 @@ while($u = mysqli_fetch_array($data)){
                 if ($x <= number_format(0.5,1,".",",")) //pembagian 2 cluster berdasarkan 0,5
                 {
                   echo "X";
-                //    //$sql = "UPDATE dataset SET c='c1', nilai_c1='$w' WHERE id='$id'";
-                //    //$query = mysqli_query($koneksi, $sql);
+                  $sql = "UPDATE dataset SET c='c1' WHERE id='$id'";
+                  $query = mysqli_query($koneksi, $sql);
                 //    echo "X"; 
                 }
-                //else if ($w <= number_format(0.5,6,".",","))
-                        //$sql2 = "UPDATE dataset SET c='c2', nilai_c2='$w' WHERE id='$id'";
-                        //$query2 = mysqli_query($koneksi, $sql2);
+                else
+                {
+                  $sql2 = "UPDATE dataset SET c='c2' WHERE id='$id'";
+                  $query2 = mysqli_query($koneksi, $sql2);
+                } 
             }
             // 3 cluster
             //if ($jcluster == "c3")
@@ -345,11 +347,11 @@ while($u = mysqli_fetch_array($data)){
             <?php
             if ($jcluster == "2")
             {
-              echo $x;
-                //if ($x >= number_format(0.5,6,".",","))
-                //{
-                //    echo "X";
-                //}
+              //echo $x;
+                if ($x >= number_format(0.5,1,".",","))
+                {
+                  echo "X";
+                }
             }
             // cluster 3
             //if ($jcluster == "c3")
@@ -398,6 +400,8 @@ while($u = mysqli_fetch_array($data)){
         $sql = "UPDATE bildom SET kj_sum='$kj_sum', lj_sum='$lj_sum', on_sum='$on_sum', pn_sum='$pn_sum'";
         $query = mysqli_query($koneksi, $sql);
         ?>
+        
+
 </table>
 <br/>
 <!-- Other Table -->

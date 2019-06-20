@@ -143,6 +143,7 @@ while($u = mysqli_fetch_array($data)){
     // Cluster
     $c        = $u['c'];
 
+
     //echo number_format(0.3,6,".",",");
     //echo $c;
 
@@ -205,6 +206,7 @@ while($u = mysqli_fetch_array($data)){
         </tr>
     <?php
     }
+    
 ?>
         <tr>
             <td><?= null; ?>

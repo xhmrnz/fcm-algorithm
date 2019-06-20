@@ -168,7 +168,8 @@
 		{
 			// import data excel mulai baris ke-2 (karena ada header pada baris 1)
 			if ($Key < 1) continue;			
-			$query = mysqli_query($koneksi, "INSERT INTO datatest(nama,x1,x2) VALUES ('".$Row[0]."', '".$Row[1]."','".$Row[2]."')");
+            $query = mysqli_query($koneksi, "INSERT INTO datatest(nama,x1,x2) VALUES ('".$Row[0]."','".$Row[1]."','".$Row[2]."')");
+            $query2 = mysqli_query($koneksi, "INSERT INTO dataset(nama,x1,x2)VALUES('".$Row[0]."','".$Row[1]."','".$Row[2]."')");
 		}
 		if ($query) {
                 echo "Import data berhasil!";
