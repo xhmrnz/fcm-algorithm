@@ -171,6 +171,141 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 </style>
+
+<table>
+<thead>
+<tr>
+  <th rowspan="2">No</th>
+  <th rowspan="2">Nama</th>
+  <th colspan="2">Keanggotaan</th>
+</thead>
+<?php
+include 'koneksi.php';
+$no = 1;
+$data = mysqli_query($koneksi, "SELECT * FROM dataset");
+while($d = mysqli_fetch_array($data)){
+?>
+<tr>
+  <td><?= $no++ ?></td>
+  <td><?= $d['nama'] ?></td>
+  <td><?= $d['c'] ?></td>
+</tr>
+    <?php } ?>
+    </table>
+
+    <style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
+<br/>
+
+<!-- Trigger/Open The Modal -->
+<form action="perhitungan.php" method="post">
+<td><input type="hidden" name="cluster" value="2"></td>
+<button type="submit">Tahap Perhitungan</button>
+</form>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Some text in the Modal..</p>
+    
+  </div>
+
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+<br/>
+<br/>
+<br/>
+
+<h2>Hasil Perhitungan</h2>
+<style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Perhitungan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="main.js"></script>
+</head>table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
                 
 <table>
 <tr>
@@ -212,13 +347,11 @@ tr:nth-child(even) {
 include 'koneksi.php';
 if(isset($_POST['proses'])){
     $jcluster = $_POST['cluster'];
-    echo "You have selected :" .$jcluster;
+    //echo "You have selected :" .$jcluster;
 }
 ?>
 
-
 <?php
-
 $z      = 5;
 $j_sum  = 0;
 $k_sum  = 0;
@@ -406,10 +539,11 @@ while($u = mysqli_fetch_array($data)){
 <br/>
 <!-- Other Table -->
 
+
+      </table>
               </div>
             </div>
           </div>
-
         </div>
         <!-- /.container-fluid -->
 
