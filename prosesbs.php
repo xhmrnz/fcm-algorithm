@@ -278,6 +278,76 @@ window.onclick = function(event) {
 }
 </script>
 
+<script src="chartjs/dist/Chart.js"></script>
+    <title>Document</title>
+    <div class="chart-container" style="position: absolute; right: 50px; top: 70px; height:20vh; width:40vw">
+    <canvas id="myChart"></canvas>
+</div>
+<script>
+var ctx = document.getElementById('myChart');
+var myChart = new Chart(ctx, {
+    type: 'scatter',
+    data: {
+        datasets: [{
+
+            label: 'Cluster 1',
+            pointBackgroundColor: '#f87979',
+            data: [{
+                x: 0.68596158129007,
+                y: 0.31403841870993
+            },{
+                x: 0.53603902961975,
+                y: 0.46396097038025	
+            },{
+                x: 0.45417813986653,
+                y: 0.45417813986653
+            }, {
+                x: 0.46944644595648,
+                y: 0.46944644595648
+            },{
+                x: 0.46123540917257,
+                y: 0.46123540917257
+            }, {
+                x: 0.46900954581026,
+                y: 0.46900954581026
+            }]
+        },
+        {
+            label: 'Cluster 2',
+            pointBackgroundColor: '#a4e0d5',
+            data: [{
+                x: 0.47501101588424,
+                y: 0.52498898411576	
+            },{
+                x: 0.47219527649627,
+                y: 0.52780472350373	
+            },{
+                x: 0.59802930682048,
+                y: 0.59802930682048
+            }, {
+                x: 0.55844084692353,
+                y: 0.55844084692353
+            },{
+                x: 0.579409170243,
+                y: 0.579409170243
+            }, {
+                x: 0.62693014207539,
+                y: 0.62693014207539
+            }]
+
+        }]
+    },
+    options: {
+        scales: {
+            xAxes: [{
+                type: 'linear',
+                position: 'bottom'
+            }]
+        }
+    }
+});
+</script>
+
 <br/>
 <br/>
 <br/>

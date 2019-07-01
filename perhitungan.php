@@ -62,6 +62,23 @@ Yang akan dihitung Keanggotaannya dalam Cluster.<br/>
 Bilangan Random :                
 <table>
 <?php
+$z      = 5;
+$j_sum  = 0;
+$k_sum  = 0;
+$l_sum  = 0;
+$kj_sum = 0;
+$lj_sum = 0;
+$n_sum  = 0;
+$o_sum  = 0;
+$p_sum  = 0;
+$on_sum = 0;
+$pn_sum = 0;
+$minc1  = 0;
+$maxc1  = 0.33333333333333333333333333333333;
+$minc2  = 0.33333333333333333333333333333333;
+$maxc2  = 0.66666666666666666666666666666666;
+$minc3  = 0.66666666666666666666666666666666;
+$maxc2  = 0.99999999999999999999999999999999;
 $no     = 1;
 $data = mysqli_query($koneksi,"SELECT c . * , p . *
 FROM bildom c, datatest p
