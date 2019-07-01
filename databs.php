@@ -153,6 +153,7 @@
                     <th rowspan="2">No</th>
                     <th rowspan="2">Nama</th>
                     <th colspan="2">Kriteria</th>
+                    <th rowspan="2">Aksi</th>
                         </tr>
                         <tr>
                             <th>Nilai 1</th>
@@ -171,6 +172,7 @@
                       <td><?= $d['nama'] ?></td>
                       <td><?= $d['x1'] ?></td>
                       <td><?= $d['x2'] ?></td>
+                      <td><?="<a href='hapus.php?id=".$d['id']."'><button class='buttonhapus button5'><span>Hapus</span></button></a>";?></td>
                     </tr>
                         <?php } ?>
                   </tbody>
