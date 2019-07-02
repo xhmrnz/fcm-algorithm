@@ -144,6 +144,9 @@
           </i>
           Export to Excel
           </a>
+		  
+		  <a href="perhitungan.php" target="_BLANK">TES PRINT</a>
+		  
             </div>
             <div class="card-body">
               <div class="table-responsive">

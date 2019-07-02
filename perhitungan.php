@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <h2>Hasil Perhitungan</h2>
+<script>
+		window.print();
+	</script>
 <style>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

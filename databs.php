@@ -172,7 +172,7 @@
                       <td><?= $d['nama'] ?></td>
                       <td><?= $d['x1'] ?></td>
                       <td><?= $d['x2'] ?></td>
-                      <td><?="<a href='hapus.php?id=".$d['id']."'><button class='buttonhapus button5'><span>Hapus</span></button></a>";?></td>
+                      <td><?="<a href='hapus.php?id=".$d['id']."' class='d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm'><span>Hapus</span></a>";?></td>
                     </tr>
                         <?php } ?>
                   </tbody>
